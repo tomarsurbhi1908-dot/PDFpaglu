@@ -4,7 +4,7 @@ export function jsonError(message: string, status = 400) {
   return NextResponse.json({ ok: false, error: message }, { status });
 }
 
-export function isUploadFile(value: FormDataEntryValue): value is File {
+export function isUploadFile(value: FormDataEntryValue | null): value is File {
   return typeof value === 'object' && value !== null && 'arrayBuffer' in value && 'name' in value;
 }
 
