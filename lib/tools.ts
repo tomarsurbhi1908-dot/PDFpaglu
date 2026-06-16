@@ -6,7 +6,8 @@ export type ToolSlug =
   | 'word-to-pdf'
   | 'pdf-to-word'
   | 'watermark-pdf'
-  | 'protect-pdf';
+  | 'protect-pdf'
+  | 'sign-pdf';
 
 export type ToolConfig = {
   slug: ToolSlug;
@@ -23,6 +24,7 @@ export type ToolConfig = {
   needsQuality?: boolean;
   needsText?: boolean;
   needsPassword?: boolean;
+  needsSignature?: boolean;
   experimental?: boolean;
 };
 
@@ -127,6 +129,19 @@ export const tools: ToolConfig[] = [
     helpText: 'Enter a strong password to encrypt the PDF file.',
     output: 'protected.pdf',
     needsPassword: true
+  },
+  {
+    slug: 'sign-pdf',
+    title: 'Sign PDF',
+    shortTitle: 'Sign',
+    description: 'Stamp a signature image on the last page of your PDF.',
+    accept: 'application/pdf',
+    multiple: false,
+    endpoint: '/api/tools/sign-pdf',
+    badge: 'Stamp',
+    helpText: 'Upload a PDF. You will be prompted to upload a signature image next.',
+    output: 'signed.pdf',
+    needsSignature: true
   }
 ];
 
