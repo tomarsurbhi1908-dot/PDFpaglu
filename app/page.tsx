@@ -1,5 +1,18 @@
 import Link from 'next/link';
 import { tools } from '@/lib/tools';
+import { Combine, Scissors, Image as ImageIcon, Minimize2, FileText, FileEdit } from 'lucide-react';
+
+function getToolIcon(slug: string) {
+  switch (slug) {
+    case 'merge-pdf': return <Combine className="h-6 w-6 text-slate-950" />;
+    case 'split-pdf': return <Scissors className="h-6 w-6 text-slate-950" />;
+    case 'image-to-pdf': return <ImageIcon className="h-6 w-6 text-slate-950" />;
+    case 'compress-pdf': return <Minimize2 className="h-6 w-6 text-slate-950" />;
+    case 'word-to-pdf': return <FileText className="h-6 w-6 text-slate-950" />;
+    case 'pdf-to-word': return <FileEdit className="h-6 w-6 text-slate-950" />;
+    default: return <FileText className="h-6 w-6 text-slate-950" />;
+  }
+}
 
 const features = [
   'Temporary files only',
@@ -97,7 +110,7 @@ export default function HomePage() {
             >
               <div className="mb-5 flex items-center justify-between">
                 <div className="grid h-12 w-12 place-items-center rounded-2xl bg-white text-lg font-black text-slate-950">
-                  {tool.shortTitle.charAt(0)}
+                  {getToolIcon(tool.slug)}
                 </div>
                 <span className="rounded-full border border-white/10 px-3 py-1 text-xs text-slate-300">{tool.badge}</span>
               </div>
