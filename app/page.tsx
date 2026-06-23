@@ -40,17 +40,19 @@ const features = [
 export default function HomePage() {
   return (
     <main className="min-h-screen overflow-hidden text-slate-900">
-      <header className="sticky top-0 z-50 border-b border-slate-200/50 bg-white/80 backdrop-blur-md">
-        <div className="mx-auto flex max-w-7xl items-center justify-between px-6 py-4">
-          <Link href="/" className="group flex items-center gap-3 transition-opacity hover:opacity-90">
-            <BrandMark />
-            <span className="text-xl font-black tracking-tight text-slate-900">PDFpaglu</span>
-          </Link>
-          <a href="#tools" className="rounded-full border border-slate-200 bg-white/50 px-6 py-2.5 text-sm font-bold text-slate-700 shadow-sm transition hover:bg-slate-50 hover:text-indigo-600">
-            View tools
-          </a>
-        </div>
-      </header>
+      <div className="sticky top-4 z-50 px-4 flex justify-center">
+        <header className="w-full max-w-5xl rounded-2xl border border-white/50 bg-white/80 backdrop-blur-xl shadow-[0_10px_40px_-10px_rgba(0,0,0,0.15),_0_2px_6px_rgba(0,0,0,0.05),_inset_0_1px_0_rgba(255,255,255,0.8)] ring-1 ring-slate-900/5 transition-all">
+          <div className="mx-auto flex items-center justify-between px-6 py-3">
+            <Link href="/" className="group flex items-center gap-5 transition-transform duration-300 hover:scale-[1.02]" style={{ perspective: '500px' }}>
+              <BrandMark />
+              <span className="text-2xl font-black tracking-tight text-slate-800 transition-transform group-hover:translate-z-10" style={{ textShadow: '1px 1px 0px #cbd5e1, 2px 2px 0px #94a3b8' }}>PDFpaglu</span>
+            </Link>
+            <a href="#tools" className="rounded-xl border border-slate-200/80 bg-gradient-to-b from-white to-slate-50 px-6 py-2.5 text-sm font-bold text-slate-700 shadow-[0_2px_10px_rgba(0,0,0,0.05),_0_1px_1px_rgba(0,0,0,0.05),_inset_0_1px_0_rgba(255,255,255,1)] transition-all duration-300 hover:-translate-y-0.5 hover:shadow-[0_8px_20px_rgba(0,0,0,0.1),_0_2px_5px_rgba(0,0,0,0.05)] hover:border-slate-300 active:translate-y-0 active:shadow-sm">
+              View tools
+            </a>
+          </div>
+        </header>
+      </div>
 
       <section className="relative mx-auto grid max-w-7xl gap-12 px-6 pb-16 pt-10 lg:grid-cols-[1.05fr_0.95fr] lg:items-center lg:pt-16">
         <div className="pointer-events-none absolute left-1/4 top-1/2 -z-10 h-[500px] w-[500px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-indigo-500/20 opacity-50 blur-[100px]" />
