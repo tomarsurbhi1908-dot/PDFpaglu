@@ -2,7 +2,7 @@ import type { Metadata } from 'next';
 import './globals.css';
 
 export const metadata: Metadata = {
-  title: 'PDF Tools Website',
+  title: 'PDFpaglu',
   description: 'Merge, split, compress and convert PDFs easily.'
 };
 
