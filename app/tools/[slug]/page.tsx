@@ -7,8 +7,9 @@ export function generateStaticParams() {
   return tools.map((tool) => ({ slug: tool.slug }));
 }
 
-export default function ToolPage({ params }: { params: { slug: string } }) {
-  const tool = getTool(params.slug);
+export default async function ToolPage({ params }: { params: Promise<{ slug: string }> }) {
+  const { slug } = await params;
+  const tool = getTool(slug);
   if (!tool) notFound();
 
   return (
@@ -17,7 +18,7 @@ export default function ToolPage({ params }: { params: { slug: string } }) {
         <header className="mb-10 flex items-center justify-between">
           <Link href="/" className="flex items-center gap-3 text-slate-600 transition hover:text-slate-900">
             <div className="grid h-10 w-10 place-items-center rounded-2xl bg-indigo-600 text-lg font-black text-white shadow-glow">P</div>
-            <span className="font-bold text-slate-900">PDFPilot</span>
+            <span className="font-bold text-slate-900">PDFpaglu</span>
           </Link>
           <Link href="/#tools" className="rounded-full border border-slate-200 bg-white px-4 py-2 text-sm text-slate-600 shadow-sm transition hover:bg-slate-50">
             All tools

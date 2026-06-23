@@ -15,10 +15,14 @@ const MIME: Record<string, string> = {
   '.png': 'image/png'
 };
 
-export async function GET(_request: Request, { params }: { params: { jobId: string; filename: string } }) {
+export async function GET(
+  _request: Request,
+  { params }: { params: Promise<{ jobId: string; filename: string }> }
+) {
   try {
-    const jobId = params.jobId;
-    const filename = safeFileName(params.filename);
+    const { jobId: rawJobId, filename: rawFilename } = await params;
+    const jobId = rawJobId;
+    const filename = safeFileName(rawFilename);
     assertSafeSegment(jobId);
     assertSafeSegment(filename);
 
