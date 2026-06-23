@@ -103,7 +103,7 @@ export default function ToolClient({ tool }: { tool: ToolConfig }) {
   }
 
   return (
-    <section className="rounded-lg border border-slate-200 bg-white p-4 shadow-xl sm:p-6">
+    <section className="overflow-hidden rounded-2xl border border-slate-200/60 bg-white/80 p-4 shadow-2xl backdrop-blur-xl sm:p-8">
       <div
         onDragOver={(event) => { event.preventDefault(); setIsDragOver(true); }}
         onDragEnter={() => setIsDragOver(true)}
@@ -113,12 +113,13 @@ export default function ToolClient({ tool }: { tool: ToolConfig }) {
           setIsDragOver(false);
           onFiles(event.dataTransfer.files);
         }}
-        className={`rounded-lg border-2 border-dashed p-8 text-center transition ${
+        className={`relative rounded-xl border-2 border-dashed p-10 text-center transition-all ${
           isDragOver
-            ? 'border-indigo-500 bg-indigo-50 shadow-lg'
-            : 'border-indigo-200 bg-slate-50 hover:border-indigo-300'
+            ? 'border-indigo-500 bg-indigo-50/80 shadow-inner'
+            : 'border-indigo-200/60 bg-slate-50/50 hover:border-indigo-400 hover:bg-slate-50/80'
         }`}
       >
+        <div className="absolute inset-0 -z-10 bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-indigo-50/50 via-white/0 to-white/0" />
         <input
           ref={inputRef}
           type="file"
@@ -127,17 +128,25 @@ export default function ToolClient({ tool }: { tool: ToolConfig }) {
           className="hidden"
           onChange={(event) => onFiles(event.target.files)}
         />
-        <div className={`mx-auto mb-5 grid h-16 w-16 place-items-center rounded-xl bg-indigo-600 text-2xl font-black text-white shadow-md transition-transform ${isDragOver ? '-translate-y-1' : ''}`}>↑</div>
-        <h2 className="text-2xl font-black text-slate-900">{isDragOver ? 'Drop to upload!' : 'Drop files here'}</h2>
-        <p className="mx-auto mt-3 max-w-xl text-sm leading-6 text-slate-500">{tool.helpText}</p>
-        <p className="mx-auto mt-2 text-xs text-slate-400">Max file size: {maxSize} MB</p>
-        <button
-          type="button"
-          onClick={() => inputRef.current?.click()}
-          className="mt-6 rounded-lg bg-slate-900 px-6 py-3 font-bold text-white transition hover:bg-slate-800"
-        >
-          Choose files
-        </button>
+        <div className={`mx-auto mb-6 grid h-20 w-20 place-items-center rounded-2xl bg-gradient-to-br from-indigo-500 to-violet-600 text-white shadow-xl transition-all ${isDragOver ? '-translate-y-2 scale-110 shadow-indigo-500/30' : 'shadow-indigo-500/20'}`}>
+          <svg className="h-10 w-10" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M7 16a4 4 0 01-.88-7.903A5 5 0 1115.9 6L16 6a5 5 0 011 9.9M15 13l-3-3m0 0l-3 3m3-3v12" />
+          </svg>
+        </div>
+        <h2 className="text-3xl font-black tracking-tight text-slate-900">{isDragOver ? 'Drop to upload!' : 'Drop files here'}</h2>
+        <p className="mx-auto mt-4 max-w-xl text-base leading-6 text-slate-600">{tool.helpText}</p>
+        <div className="mt-3 inline-flex items-center gap-2 rounded-full border border-slate-200/60 bg-white px-3 py-1 text-xs font-semibold text-slate-500 shadow-sm">
+          Max size: {maxSize} MB
+        </div>
+        <div className="mt-8">
+          <button
+            type="button"
+            onClick={() => inputRef.current?.click()}
+            className="rounded-full bg-slate-900 px-8 py-3.5 font-bold text-white shadow-md transition hover:scale-105 hover:bg-slate-800"
+          >
+            Choose files
+          </button>
+        </div>
       </div>
 
       {files.length > 0 && (

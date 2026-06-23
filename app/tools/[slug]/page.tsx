@@ -30,17 +30,20 @@ export default async function ToolPage({ params }: { params: Promise<{ slug: str
   if (!tool) notFound();
 
   return (
-    <main className="min-h-screen px-6 py-6 text-slate-900">
-      <div className="mx-auto max-w-5xl">
-        <header className="mb-10 flex items-center justify-between">
-          <Link href="/" className="flex items-center gap-3 text-slate-600 transition hover:text-slate-900">
+    <main className="min-h-screen text-slate-900">
+      <header className="sticky top-0 z-50 border-b border-slate-200/50 bg-white/80 backdrop-blur-md">
+        <div className="mx-auto flex max-w-5xl items-center justify-between px-6 py-4">
+          <Link href="/" className="group flex items-center gap-3 transition-opacity hover:opacity-90">
             <BrandMark />
-            <span className="font-bold text-slate-900">PDFpaglu</span>
+            <span className="text-xl font-black tracking-tight text-slate-900">PDFpaglu</span>
           </Link>
-          <Link href="/#tools" className="rounded-lg border border-slate-200 bg-white px-4 py-2 text-sm text-slate-600 shadow-sm transition hover:bg-slate-50">
+          <Link href="/#tools" className="rounded-full border border-slate-200 bg-white/50 px-6 py-2.5 text-sm font-bold text-slate-700 shadow-sm transition hover:bg-slate-50 hover:text-indigo-600">
             All tools
           </Link>
-        </header>
+        </div>
+      </header>
+
+      <div className="mx-auto max-w-5xl px-6 pt-10">
 
         <section className="mb-8 text-center">
           <div className="mb-4 inline-flex rounded-lg border border-indigo-200 bg-indigo-50 px-4 py-2 text-sm text-indigo-700 font-medium">
