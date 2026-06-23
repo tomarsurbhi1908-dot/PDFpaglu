@@ -2,6 +2,7 @@ import Link from 'next/link';
 import { notFound } from 'next/navigation';
 import { getTool, tools } from '@/lib/tools';
 import { BrandMark } from '@/components/brand-mark';
+import { SiteHeader } from '@/components/site-header';
 import ToolClient from './tool-client';
 import type { Metadata } from 'next';
 
@@ -74,19 +75,7 @@ export default async function ToolPage({ params }: { params: Promise<{ slug: str
         />
       )}
 
-      <div className="sticky top-4 z-50 px-4 flex justify-center">
-        <header className="w-full max-w-5xl rounded-2xl border border-white/50 bg-white/80 backdrop-blur-xl shadow-[0_10px_40px_-10px_rgba(0,0,0,0.15),_0_2px_6px_rgba(0,0,0,0.05),_inset_0_1px_0_rgba(255,255,255,0.8)] ring-1 ring-slate-900/5 transition-all">
-          <div className="mx-auto flex items-center justify-between px-6 py-3">
-            <Link href="/" className="group flex items-center gap-5 transition-transform duration-300 hover:scale-[1.02]" style={{ perspective: '500px' }}>
-              <BrandMark />
-              <span className="text-2xl font-black tracking-tight text-slate-800 transition-transform group-hover:translate-z-10" style={{ textShadow: '1px 1px 0px #cbd5e1, 2px 2px 0px #94a3b8' }}>PDFpaglu</span>
-            </Link>
-            <Link href="/#tools" className="rounded-xl border border-slate-200/80 bg-gradient-to-b from-white to-slate-50 px-6 py-2.5 text-sm font-bold text-slate-700 shadow-[0_2px_10px_rgba(0,0,0,0.05),_0_1px_1px_rgba(0,0,0,0.05),_inset_0_1px_0_rgba(255,255,255,1)] transition-all duration-300 hover:-translate-y-0.5 hover:shadow-[0_8px_20px_rgba(0,0,0,0.1),_0_2px_5px_rgba(0,0,0,0.05)] hover:border-slate-300 active:translate-y-0 active:shadow-sm">
-              All tools
-            </Link>
-          </div>
-        </header>
-      </div>
+      <SiteHeader ctaHref="/#tools" ctaLabel="All tools" />
 
       <div className="mx-auto max-w-5xl px-6 pt-10 pb-20">
 
@@ -146,7 +135,7 @@ export default async function ToolPage({ params }: { params: Promise<{ slug: str
 
       </div>
 
-      <footer className="mx-auto max-w-5xl border-t border-slate-200 pt-8 pb-6 px-6">
+      <footer id="privacy" className="mx-auto max-w-5xl border-t border-slate-200 pt-8 pb-6 px-6">
         <div className="flex flex-col items-center justify-between gap-4 sm:flex-row">
           <Link href="/" className="flex items-center gap-2">
             <BrandMark size="sm" />
