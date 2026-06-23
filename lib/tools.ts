@@ -156,8 +156,8 @@ export const tools: ToolConfig[] = [
     title: 'PDF to Word',
     seoTitle: 'Convert PDF to Word Online Free - PDF to DOCX | PDFpaglu',
     shortTitle: 'PDF to Word',
-    description: 'Convert PDF into DOCX with an experimental Python converter.',
-    longDescription: 'Turn your PDF files back into editable Microsoft Word documents (DOCX). Our experimental converter uses advanced algorithms to extract text and attempt to reconstruct the layout, making it easy for you to edit PDF content.',
+    description: 'Convert PDF into DOCX, with layout review recommended.',
+    longDescription: 'Turn your PDF files back into editable Microsoft Word documents (DOCX). PDF files use fixed layouts, so the converted document may need small formatting adjustments after download, especially for complex designs.',
     howToGuide: [
       { title: 'Upload PDF', description: 'Select the PDF file you need to edit in Word.' },
       { title: 'Convert', description: 'Wait a few seconds while we extract the text and formatting.' },
@@ -165,7 +165,7 @@ export const tools: ToolConfig[] = [
     ],
     faqs: [
       { question: 'Is the converted Word document editable?', answer: 'Yes! The resulting DOCX file can be opened in Microsoft Word or Google Docs and edited freely.' },
-      { question: 'Will complex layouts look perfect?', answer: 'This tool is experimental. Simple text documents work flawlessly, but complex layouts with tables or multiple columns might require minor manual adjustments in Word.' }
+      { question: 'Will complex layouts look perfect?', answer: 'Simple text documents usually convert cleanly, but complex layouts with tables, columns, or custom graphics may require minor manual adjustments in Word.' }
     ],
     accept: 'application/pdf',
     multiple: false,
