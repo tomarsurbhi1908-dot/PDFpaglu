@@ -3,7 +3,7 @@
 	"main": ".open-next/worker.js",
 	"name": "pdfpaglu",
 	"build": {
-		"command": "npx opennextjs-cloudflare build"
+		"command": "npm run build"
 	},
 	"compatibility_date": "2026-06-23",
 	"compatibility_flags": [
